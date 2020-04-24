@@ -1,0 +1,86 @@
+body{
+ height: 100vh;
+}
+
+#title h1{
+    font-family: 'Fredericka the Great', cursive;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+#title img{
+    width:60px;
+    height: auto;
+}
+
+#title{
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    left: 23%;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.73);
+    padding: 5px;
+    /* line-height: 30px; */
+}
+#map{
+    height: 100vh;
+    box-shadow: 0 0 4px 0 #808080;
+}
+.list{
+    background: rgba(243, 239, 239, 0.5);
+    height: 100vh;
+    overflow: scroll;
+    margin-left: 1rem;
+    width: 320px;
+    box-shadow: 0 0 4px 0 #808080;
+}
+
+.stars{
+    margin: 5px 5px;
+}
+.listOfRestaurants{
+    margin-left: 15px;
+    cursor: pointer;
+}
+.showRestaurantDetails{
+    display: none;
+    cursor: pointer;
+    margin: 1em;
+    text-align: justify;
+}
+.imgStreetView{
+    box-shadow: 2px 2px 10px grey;
+    width: 100%;
+}
+
+span{
+    text-transform: uppercase;
+}
+p, i {
+    font-size: 13px;
+}
+i{
+    color: #e7711b;
+}
+textarea{
+    height: 200px;
+    width: 460px;
+}
+.InfoRating{
+    border-bottom: solid 1px #808080;
+}
+
+@media (max-width: 767px) {
+    .row {
+      display:block;
+    }
+    .list{
+        display: contents;
+    }
+    
+    #form-addNewComment .modal-body textarea{
+        width: 100%;
+    }
+
+  }

@@ -1,0 +1,38 @@
+/ * La Map 
+
+ sur la Map on va définir:
+ - un marker pour chaque restau
+ - afficher le resultat du filtre des restau
+ - geolocalisation de l'user
+
+* /
+
+Class Map
+   constructor(){
+
+
+   }
+
+
+/ * Les avis * /
+Class restaurant
+    constructor(id, name, address, rating, photo){
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.rating = rating;
+        this.photo = photo;
+    }
+
+
+/ * Les avis * / 
+Class Reviews
+    constructor(restaurantId, restaurantName, restaurantPhoneNumber, reviews){
+        this.restaurantId = restaurantId;
+        this.restaurantName = restaurantName;
+        this.restaurantPhoneNumber = restaurantPhoneNumber;
+        this.reviews = reviews;
+        this.authorName = null;
+        this.authorRating = null;
+        this.authorComment = null;
+    }

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+    <!-- fontawerson -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Restaurant H24</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="Image/lobster.png" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- <div class="titre">
+            <h1>Restaurant H24</h1>
+            <img src="Image/lobster.png" alt="lobster">
+        </div> -->
+        <div class="row">
+            <div id="title" class="d-none d-lg-flex">
+                <h1>Restaurant H24</h1>
+                <img src="Image/lobster.png" alt="lobster">
+            </div>
+            <div class="col " id="map">
+                <!-- Ici s'affichera la carte -->
+            </div>
+
+            <div class="col-md-auto list" id="list">
+
+                <div class="listGeneral" id="listGeneral">
+
+                    <div class="stars">
+                        <label for="minStars">Min</label>
+                        <select name="stars" class="custom-select mr-sm-2" id="minStars">
+                            <option value="0">0 étoile</option>
+                            <option value="1">1 étoile</option>
+                            <option value="2">2 étoiles</option>
+                            <option value="3">3 étoiles</option>
+                            <option value="4">4 étoiles</option>
+                            <option value="5">5 étoiles</option>
+                        </select>
+
+                        <label for="maxStars">Max</label>
+                        <select name="stars" class="custom-select mr-sm-2" id="maxStars">
+                            <option value="1">1 étoile</option>
+                            <option value="2">2 étoiles</option>
+                            <option value="3">3 étoiles</option>
+                            <option value="4">4 étoiles</option>
+                            <option value="5" selected>5 étoiles</option>
+                        </select>
+                    </div>
+
+                    <!-- Affiche la liste des restaurants -->
+                    <div class="listOfRestaurants" id="listOfRestaurants"></div>
+
+                </div>
+
+                <!-- Affiche les détails du restau selctionné. Cette div est en display block à la base -->
+                <div class="showRestaurantDetails" id="showRestaurantDetails">
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- Modal ajout de commentaire -->
+
+    <div class="modal fade" id="form-addComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form action="#" id="form-addNewComment" onsubmit="return false">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="title-addComment">Ajouter un avis</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="your-rating">Donnez votre avis utilisateur</label>
+                        <select name="your-rating" id="your-rating" required>
+                            <option disabled selected value>Note</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <textarea name="your-review" id="your-review"
+                            placeholder="Partager les détails de votre expérience à cet endroit" required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-light" id="cancelAddingComment"
+                            data-dismiss="modal">Fermer</button>
+                        <button class="btn btn-primary" type="button" value="Ajouter"
+                            id="submitNewComment">Ajouter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ajout de restau -->
+
+    <div class="modal fade" id="addNewRestaurant" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form action="#" id="form-addNewRestaurant">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addNewRestaurantTitle">Ajouter un nouveau restaurant</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="inputNewName">Nom du restaurant</label>
+                        <input type="text" class="form-control" id="inputNewName" placeholder="Nom de ce restaurant"
+                            required>
+
+                        <label for="inputNewAdresse">Adresse du restaurant</label>
+                        <input type="text" class="form-control" id="inputNewAdresse" placeholder="Ajouter une adresse"
+                            required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closeAddingRestaurant"
+                            data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn btn-primary" id="confirmAddingRestaurant">Publier</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- Objet -->
+    <script src="js/listeRestaurant.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/restaurant.js"></script>
+    <script src="js/review.js"></script>
+    <!-- Google map -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqxE4oHzIGt8Bg9Eb3yhjz6-arNbRbE5A&callback=initMap&libraries=places">
+        </script>
+</body>
+
+</html>
